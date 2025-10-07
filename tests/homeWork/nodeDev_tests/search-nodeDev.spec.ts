@@ -1,18 +1,8 @@
-import { test, expect, Locator, ElementHandle } from '@playwright/test';
-
-//https://playwright.dev/
-//https://playwright.dev/docs/intro --click GET STARTED 
-
-test.beforeEach(async({page}) => {
-    await page.goto('https://playwright.dev/');
-    await page.locator('[class="getStarted_Sjon"]').click();
-    await expect (page).toHaveURL('https://playwright.dev/docs/intro');
-    await expect(page.locator('header:has-text("Installation")')).toBeVisible();
-})
+import { test, expect, Locator } from '@playwright/test';
+import { baseSetup } from './base-setup';
 
 
-
-test('NODE-0001 Search', 
+test('NODE-0001   Search: "Fixtures"', 
     {
         tag: ["@positive"],
         annotation: {type: "description", description: "should perform search correctly"}
@@ -20,8 +10,10 @@ test('NODE-0001 Search',
     
     async ({ page }) => {
 
-        const searchValue: string = "Fixtures";
+        await baseSetup(page);
         
+        const searchValue: string = "Fixtures";
+
         await page.locator('span.DocSearch-Button-Placeholder:has-text("Search")').click(); //click Search by element.class:text
         await expect (page.locator('div.DocSearch-Modal')).toBeVisible();  //check if modal window is presented
         await page.locator('#docsearch-input').click(); // search field in the modal window by input id
@@ -41,7 +33,6 @@ test('NODE-0001 Search',
             }
         }
         
-
         var main = page.locator('main');
         var listOfArticles: Locator[] = await main.locator('article').all();
         
