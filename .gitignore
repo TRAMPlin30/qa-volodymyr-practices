@@ -1,6 +1,6 @@
 
 # Playwright
-tests/homeWork/conduitSite_tests/auth-data.json/
+test/homeWork/conduitSite_tests/auth/auth-data.json
 node_modules/
 /test-results/
 /playwright-report/
