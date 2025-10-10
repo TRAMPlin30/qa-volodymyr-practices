@@ -1,5 +1,6 @@
 
 # Playwright
+tests/lessons
 tests/homeWork/conduitSite_tests/auth/auth-data.json
 node_modules/
 /test-results/
@@ -7,4 +8,5 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
 
