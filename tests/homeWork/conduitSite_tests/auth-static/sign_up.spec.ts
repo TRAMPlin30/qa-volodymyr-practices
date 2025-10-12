@@ -9,7 +9,7 @@ import { generateUserCredentials, getUserCredentials, logout } from './utils';
 
 
 
-    test('SIGNUP-S-001   Sign Up to Conduit Site with valid username, email, password', 
+    test('SIGNUP-S-001   Positive: Sign Up to Conduit Site with valid username, email, password', 
     {
         tag: ["@positive"],
         annotation: {type: "description", description: "Positive sign-up test: user can sign up with a valid username, email and password"}
@@ -32,7 +32,7 @@ import { generateUserCredentials, getUserCredentials, logout } from './utils';
 
 
 
-    test('SIGNUP-S-002   Sign Up to Conduit Site with valid invalid username', 
+    test('SIGNUP-S-002   Negative: Sign Up to Conduit Site with valid invalid username', 
     {
         tag: ["@negative"],
         annotation: {type: "description", description: "Negative sign-up test: user can`t sign up with a invalid username"}
@@ -57,7 +57,7 @@ import { generateUserCredentials, getUserCredentials, logout } from './utils';
 
 
 
-    test('SIGNUP-S-003   Sign up on Conduit with an email that is already taken', 
+    test('SIGNUP-S-003   Negative: Sign up on Conduit with an email that is already taken', 
     {
         tag: ["@negative"],
         annotation: {type: "description", description: "Negative sign-up test: user can`t sign up with an email that is already taken"}

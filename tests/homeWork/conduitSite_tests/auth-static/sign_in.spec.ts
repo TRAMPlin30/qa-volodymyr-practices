@@ -8,7 +8,7 @@ import { getUserCredentials, logout } from './utils';
     })
 
 
-    test('SIGNIN-S-001   Sign In to Conduit Site with valid registered user data', 
+    test('SIGNIN-S-001   Positive: Sign In to Conduit Site with valid registered user data', 
     {
         tag: ["@positive"],
         annotation: {type: "description", description: "Check the sign-in flow: correct registered email + password → login succeeds"}
@@ -28,7 +28,7 @@ import { getUserCredentials, logout } from './utils';
     })
               
 
-    test('SIGNIN-S-002   Sign In to Conduit Site with non-registered user data', 
+    test('SIGNIN-S-002   Negative: Sign In to Conduit Site with non-registered user data', 
     {
         tag: ["@negative"],
         annotation: {type: "description", description: "Check the sign-in flow: unregistered email + password → login unsuccessful"}
@@ -49,7 +49,7 @@ import { getUserCredentials, logout } from './utils';
     })
 
 
-    test('SIGNIN-S-003   Sign In to Conduit Site with invalid email (e.g. invicodin.com)', 
+    test('SIGNIN-S-003   Negative: Sign In to Conduit Site with invalid email (e.g. invicodin.com)', 
     {
         tag: ["@negative"],
         annotation: {type: "description", description: "Check the sign-in flow: incorrect email → login unsuccessful"}
@@ -74,7 +74,7 @@ import { getUserCredentials, logout } from './utils';
     })
 
 
-    test('SIGNIN-S-004   Sign In to Conduit Site with empty password field', 
+    test('SIGNIN-S-004   Negative: Sign In to Conduit Site with empty password field', 
     {
         tag: ["@negative"],
         annotation: {type: "description", description: "Check the sign-in flow: empty password field → login unsuccessful"}
