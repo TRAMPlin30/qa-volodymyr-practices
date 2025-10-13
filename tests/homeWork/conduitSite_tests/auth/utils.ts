@@ -3,10 +3,11 @@
 //https://stackoverflow.com/questions/33643107/read-and-write-a-text-file-in-typescript
 
 import { Page } from '@playwright/test'; 
+import { faker } from '@faker-js/faker';  
 import { readFileSync, writeFileSync } from "fs";  //module Node.js File System
 
 
-const credentialsFilePath = "tests/homeWork/conduitSite_tests/auth-static/login-user.json";
+const credentialsFilePath = "tests/homeWork/conduitSite_tests/auth/login-user.json";
 
 
 export function getUserCredentials(): Map<string, string> {
@@ -24,9 +25,9 @@ export function getUserCredentials(): Map<string, string> {
 
 
 export function generateUserCredentials() {
-    var username: string = "vicodin1";
-    var email: string = "vicodin1@gmail.com"; 
-    var password: string = "123456789";
+    var username: string = faker.internet.username().slice(0, 4).toLocaleLowerCase();
+    var email: string = faker.internet.email().toLocaleLowerCase(); 
+    var password: string = faker.internet.password();
     var data = { username: username, email: email, password: password}
     var jsonData = JSON.stringify(data, null, 2); // Pretty-print //сериализация
     writeFileSync(credentialsFilePath, jsonData);
