@@ -87,6 +87,7 @@ import { getUserCredentials, logout } from './utils';
         await page.getByPlaceholder('Email').fill(authData.get('email')!);
         await page.locator('button:has-text("Sign in")').click();
 
+        //var errorMessages: Locator[] = await page.locator("ul.error-messages > li").all();
         var errorMessages: Locator[] = await page.locator("ul.error-messages").all();
         for (var error of errorMessages) {
             expect (error).toHaveText("password can't be blank")
