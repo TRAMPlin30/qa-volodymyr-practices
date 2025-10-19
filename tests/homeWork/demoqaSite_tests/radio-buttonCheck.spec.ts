@@ -43,11 +43,7 @@ test(
     annotation: { type: "description", description: "description" },
   },
   async ({ page }) => {
-    var radioList: string[] = [
-      Locators.xYesRadioButton,
-      Locators.xImpressiveRadioButton,
-      Locators.xNoRadioButton,
-    ];
+    var radioList: string[] = [Locators.xYesRadioButton, Locators.xImpressiveRadioButton, Locators.xNoRadioButton];
 
     for (var radio of radioList) {
       if (
@@ -57,14 +53,7 @@ test(
         await page.locator(radio + "/following-sibling::label").click();
         expect(await getRadioState(page, radio)).toBe("checked");
       } else
-        console.log(
-          "your radioButton: " +
-            "'" +
-            (await page
-              .locator(radio + "/following-sibling::label")
-              .allTextContents()) +
-            "'" +
-            " - is not available or already checked !"
+        console.log("your radioButton: "+"'"+(await page.locator(radio+"/following-sibling::label").allTextContents())+"'"+" - is not available or already checked !"
         );
     }
   }
