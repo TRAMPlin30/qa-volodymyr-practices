@@ -1,6 +1,9 @@
     
  //Radio Button
         export const xPathHeaderRadioButton: string = "//h1[text()='Radio Button']";
+        export const xYesRadioButton: string = "//input[@id='yesRadio']";
+        export const xImpressiveRadioButton: string = "//input[@id='impressiveRadio']";
+        export const xNoRadioButton: string = "//input[@id='noRadio']";
  
  
  
