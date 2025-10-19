@@ -1,11 +1,12 @@
 //використовуючи ЛИШЕ Xpath 
 
 import { test, expect } from '@playwright/test';
+import * as Locators from './xlocators';
 
     test.beforeEach ('Open Site', async ({ page }) => {
-    await page.goto('url');
-    await expect (page).toHaveURL('url');
-    await expect(page.locator('some locator')).toBeVisible();
+    await page.goto('https://demoqa.com/radio-button');
+    await expect (page).toHaveURL('https://demoqa.com/radio-button');
+    await expect(page.locator(Locators.xPathHeaderRadioButton)).toBeVisible();
     })
 
 
