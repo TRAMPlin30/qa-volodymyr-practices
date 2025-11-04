@@ -9,6 +9,12 @@
   "devDependencies": {
     "@faker-js/faker": "^10.0.0",
     "@playwright/test": "^1.55.1",
-    "@types/node": "^24.6.2"
+    "@types/node": "^24.6.2",
+    "@types/readline-sync": "^1.4.8",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
   }
 }

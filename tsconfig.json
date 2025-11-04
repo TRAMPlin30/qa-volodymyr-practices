@@ -1,0 +1,11 @@
+{
+   "compilerOptions": {
+    "target": "ES2019",      //Указывает в какую версию JavaScript TypeScript будет компилировать твой код. стандарт ECMAScript 2019
+    "module": "CommonJS",    //Определяет, какую систему модулей использовать в скомпилированных .js файлах.ommonJS — это стандарт модулей Node.js 
+    "rootDir": "src",        //Указывает где лежат исходники TypeScript.
+    "outDir": "dist",        //Указывает, куда класть скомпилированные .js файлы после npx tsc.
+    "esModuleInterop": true, //Позволяет писать красивые импорты - import readlineSync from "readline-sync";
+    "strict": true           //Включает все строгие проверки TypeScript: помогает ловить ошибки ещё до запуска кода.
+  },
+  "include": ["src"]         //Указывает какие папки/файлы компилятор должен обрабатывать.
+}
