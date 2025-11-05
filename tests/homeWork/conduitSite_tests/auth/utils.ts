@@ -34,6 +34,16 @@ export function generateUserCredentials() {
     
 }
 
+export async function login(page: Page) {
+        const authData: Map<string, string> = getUserCredentials();
+        await page.locator('a.nav-link[href="/login"]').click();
+        await page.getByPlaceholder('Email').fill(authData.get('email')!);
+        await page.getByPlaceholder('Password').fill(authData.get('password')!);
+        await page.locator('button:has-text("Sign in")').click();
+
+}
+
+
 
 export async function logout(page: Page) {
         await page.locator('a.nav-link[href="/settings"]').click();

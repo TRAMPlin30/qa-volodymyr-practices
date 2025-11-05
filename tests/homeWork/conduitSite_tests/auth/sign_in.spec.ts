@@ -1,5 +1,5 @@
 import { test, expect, Locator } from '@playwright/test';
-import { getUserCredentials, logout } from './utils';
+import { getUserCredentials, login, logout } from './utils';
 
     test.beforeEach ('Open Site', async ({ page }) => {
     await page.goto('https://demo.learnwebdriverio.com/');
@@ -16,13 +16,10 @@ import { getUserCredentials, logout } from './utils';
     async ({ page }) => {
         
         const authData: Map<string, string> = getUserCredentials();
+        var username = authData.get('username')
         
-        await page.locator('a.nav-link[href="/login"]').click();
-        await page.getByPlaceholder('Email').fill(authData.get('email')!);
-        await page.getByPlaceholder('Password').fill(authData.get('password')!);
-        await page.locator('button:has-text("Sign in")').click();
-        expect (page.locator('a:has-text("${username}")')).toBeVisible();
-
+        await login(page);
+        expect (page.locator('a:has-text("${username}")')).toBeVisible(); //(template literal)
         await logout(page);
         
     })
