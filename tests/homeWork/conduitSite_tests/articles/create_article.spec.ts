@@ -9,12 +9,6 @@ import { da } from '@faker-js/faker';
     await expect(page.locator('h1:has-text("conduit")')).toBeVisible();
     })
 
-
-    var articlesDataSets: string[][] = [
-        ["Title1","Description1","Text1","Tag1"],
-        ["Title2","Description2","Text2","Tag2"],
-        ["Title3","Description3","Text3","Tag3"]
-    ];
     
     test('ARTICLE-S-001   Positive: Sign In and create articles', 
     {
@@ -22,13 +16,19 @@ import { da } from '@faker-js/faker';
         annotation: {type: "description", description: "Check the create flow: User creates new Articles with valid data"}
     },
     async ({ page }) => {
+
+        var articlesDataSets: string[][] = [
+        ["Title1","Description1","Text1","Tag1"],
+        ["Title2","Description2","Text2","Tag2"],
+        ["Title3","Description3","Text3","Tag3"]
+    ];
         
         const authData: Map<string, string> = getUserCredentials();
         var username = authData.get('username')
         
-        await login(page);
+    await login(page);
 
-       for (const dataSet of articlesDataSets) {
+       for (var dataSet of articlesDataSets) {
 
             await page.locator(LOCATORS.newArticleLink).click();
             await page.locator(LOCATORS.newArticleLink).click();
@@ -50,11 +50,6 @@ import { da } from '@faker-js/faker';
 
             await page.locator(LOCATORS.homeLink).click();
 
-
-
        }
 
-        //await logout(page);
-
-        
     })
