@@ -48,6 +48,10 @@ import { da } from '@faker-js/faker';
             await page.locator(LOCATORS.articlePublishButton).click();
             await expect(page.locator(LOCATORS.articleBody)).toHaveText(dataSet[2]);
 
+            await page.locator(LOCATORS.homeLink).click();
+
+
+
        }
 
         //await logout(page);

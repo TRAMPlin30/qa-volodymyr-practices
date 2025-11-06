@@ -2,7 +2,7 @@ import { Locator } from "@playwright/test";
 
     
  //
-        export const home: string = 'a.nav-link[href="/register"]';
+        export const homeLink: string = "//a[contains(text(), 'Home')]";
         export const newArticleLink: string = "//a[@href='/editor']";
         export const articleTitle: string = "//input[@data-qa-id='editor-title']";
         export const articleDescription: string = "//input[@data-qa-id='editor-description']";
