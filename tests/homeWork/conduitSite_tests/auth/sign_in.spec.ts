@@ -18,8 +18,12 @@ import { getUserCredentials, login, logout } from './utils';
         const authData: Map<string, string> = getUserCredentials();
         var username = authData.get('username')
         
-        await login(page);
+        await page.locator('a.nav-link[href="/login"]').click();
+        await page.getByPlaceholder('Email').fill(authData.get('email')!);
+        await page.getByPlaceholder('Password').fill(authData.get('password')!);
+        await page.locator('button:has-text("Sign in")').click();
         expect (page.locator('a:has-text("${username}")')).toBeVisible(); //(template literal)
+        
         await logout(page);
         
     })

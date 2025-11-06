@@ -44,7 +44,6 @@ export async function login(page: Page) {
 }
 
 
-
 export async function logout(page: Page) {
         await page.locator('a.nav-link[href="/settings"]').click();
         await page.locator('button.btn.btn-outline-danger').scrollIntoViewIfNeeded();
