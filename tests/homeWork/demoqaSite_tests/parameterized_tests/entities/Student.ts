@@ -3,7 +3,8 @@
 export class Student {
 
     id: number;
-    name: string;
+    firstName: string;
+    lastName: string;
     email: string;
     gender: string;
     mobile: string;
@@ -15,9 +16,10 @@ export class Student {
     state: string;
     city: string;
 
-    constructor(id: number, name:string, email:string, gender: string, mobile:string, birthDate:string, subjects:string, hobbies:string, address:string, state:string, city:string) {
+    constructor(id: number, firstName:string, lastName:string, email:string, gender: string, mobile:string, birthDate:string, subjects:string, hobbies:string, address:string, state:string, city:string) {
         this.id = id
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.gender = gender;
         this.mobile = mobile;
