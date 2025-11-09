@@ -1,6 +1,6 @@
 import { test, expect, Page, Locator } from '@playwright/test';
 import * as locators from '../xlocators';
-import { StudentInnerAddr } from './entities/StudentInnerAddr';  
+import { StudentInnerAddr } from './entities/StudentNestedObjects';  
 
 test.beforeEach ('Open Site', async ({ page }) => {
     await page.goto('https://demoqa.com/automation-practice-form');

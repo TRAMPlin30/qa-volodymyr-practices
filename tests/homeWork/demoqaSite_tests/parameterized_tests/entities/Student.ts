@@ -30,4 +30,5 @@ export class Student {
         this.state = state;
         this.city = city;
     }
-}
+
+    }
