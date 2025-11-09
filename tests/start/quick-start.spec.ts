@@ -17,3 +17,22 @@ import { test, expect } from '@playwright/test';
 
         
     })
+
+
+
+/*
+    const objectTest = [{param1: "data", param2: "data"}, //object1
+                        {param1: "data", param2: "data"}, //object2
+                        {param1: "data", param2: "data"}] //object3
+
+    test.each(objectTest)('ID   Some: text', 
+    {
+        tag: ["@tag"],
+        annotation: {type: "description", description: "description"}
+    },
+    async ({ param1,  param2}) => {
+        
+
+        
+    })
+*/

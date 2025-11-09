@@ -50,4 +50,3 @@ export async function logout(page: Page) {
         await page.locator('button.btn.btn-outline-danger').click();
 
 }
- 

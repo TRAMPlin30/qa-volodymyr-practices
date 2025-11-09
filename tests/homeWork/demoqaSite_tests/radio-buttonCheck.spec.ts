@@ -9,10 +9,7 @@ test.beforeEach("Open Site", async ({ page }) => {
   await expect(page.locator(Locators.xPathHeaderRadioButton)).toBeVisible();
 });
 
-async function isRadioAvailable(
-  page: Page,
-  xPathRadio: string
-): Promise<string> {
+async function isRadioAvailable(page: Page, xPathRadio: string): Promise<string> {
   const radio: Locator = page.locator(xPathRadio);
   const status: boolean = await radio.isDisabled();
 

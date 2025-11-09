@@ -1,4 +1,9 @@
     
+ //Practice Form
+    export const xPracticeFormHeader: string ="//h1[text()='Practice Form']"; 
+ 
+ 
+ 
  //Radio Button
         export const xPathHeaderRadioButton: string = "//h1[text()='Radio Button']";
         export const xYesRadioButton: string = "//input[@id='yesRadio']";
