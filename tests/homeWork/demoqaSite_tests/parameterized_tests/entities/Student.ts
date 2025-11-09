@@ -31,4 +31,23 @@ export class Student {
         this.city = city;
     }
 
-    }
+    getGenderXPath (gender: string): string {
+        
+        var maleXpath: string = "//input[@id='gender-radio-1']";
+        var femaleXpath: string = "//input[@id='gender-radio-2']";
+        var otherXpath: string = "//input[@id='gender-radio-3']";
+
+        switch (gender) {
+                case "Male":
+                    return maleXpath;
+                case "Female":
+                    return femaleXpath;
+                case "Other":
+                    return otherXpath; 
+                default:
+                    console.log("Wrong value for gender radio button !!!")
+                    return "Wrong gender selector";
+                } 
+                
+
+}}

@@ -1,23 +1,25 @@
 import { Address } from "./Address";
 
 
-export class StudentInnerAddr {
+export class StudentNestedObjects {
 
     id: number;
-    name: string;
+    firstName: string;
+    lastName: string;
     email: string;
     gender: string;
     mobile: string;
     birthDate: string;
-    subjects: string;
+    subjects: string[];
     hobbies: string;
     pictures?: any;
     address: Address;
+    
 
-    constructor(id: number, name:string, email:string, gender: string, mobile:string, birthDate:string,
-                 subjects:string, hobbies:string, address:Address) {
+    constructor(id: number, firstName:string, lastName:string, email:string, gender: string, mobile:string, birthDate:string, subjects:string[], hobbies:string, address:Address) {
         this.id = id
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.gender = gender;
         this.mobile = mobile;
@@ -25,5 +27,6 @@ export class StudentInnerAddr {
         this.subjects = subjects;
         this.hobbies = hobbies;
         this.address = address;
+        
     }
 }
