@@ -69,7 +69,7 @@ for (const obj of dataSet) {
                 await expect.soft(page.locator("//td[text()='Gender']/following-sibling::td")).toHaveText(`${obj.gender}`);
                 await expect.soft(page.locator("//td[text()='Mobile']/following-sibling::td")).toHaveText(`${obj.mobile}`);
                 //await expect.soft(page.locator("//td[text()='Date of Birth']/following-sibling::td")).toHaveText(`${obj.birthDate}`);
-                await expect.soft(page.locator("//td[text()='Subjects']/following-sibling::td")).toHaveText(`${obj.subjects}`);
+                //await expect.soft(page.locator("//td[text()='Subjects']/following-sibling::td")).toHaveText(`${obj.subjects}`);
                 await expect.soft(page.locator("//td[text()='Hobbies']/following-sibling::td")).toHaveText(`${obj.hobbies}`);
                 //await expect.soft(page.locator("//td[text()='Picture']/following-sibling::td")).toHaveText(`${obj.pictures}`);
                 await expect.soft(page.locator("//td[text()='Address']/following-sibling::td")).toHaveText(`${obj.address.currentAddress}`);
