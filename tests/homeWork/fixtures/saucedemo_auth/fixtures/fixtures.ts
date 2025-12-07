@@ -3,7 +3,7 @@ import { LoginPage } from '../pages/LoginPage'
 import { NavBarPage } from '../pages/NavBarPage'
 
 
-type MyFixtures  = { loginPage: LoginPage, login: (userNum: number) => Promise<void>, setupApp: void, logOut: void } 
+type MyFixtures  = { loginPage: LoginPage, nuvBarPage: NavBarPage, login: (userNum: number) => Promise<void>, setupApp: void, logOut: void } 
 
 
 export const my_test = test.extend<MyFixtures>({
@@ -31,6 +31,12 @@ export const my_test = test.extend<MyFixtures>({
         const loginPage = new LoginPage(page);
         await use(loginPage);
     },
+
+     nuvBarPage: async ({page}, use) => {console.log("fixture: LoginPage created")
+        const nuvBarPage = new NavBarPage(page);
+        await use(nuvBarPage);
+    },
+
 
 //--------------------------------------
 

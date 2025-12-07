@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { my_test } from '../fixtures/fixtures';
+import { my_test } from '../../fixtures/fixtures';
   
 
 
@@ -12,16 +12,6 @@ my_test('ID 0_User', {tag: ["@positive"], annotation: {type: "description", desc
         
     })
 
-
-my_test('ID 1_User', {tag: ["@positive"], annotation: {type: "description", description: " userNUm = '1' -locked_out_user login test "}},
-        
-    async ({ login, logOut }) => {   
-                
-        await login(1);
-        logOut;
-        
-        
-    })
 
 my_test('ID 2_User', {tag: ["@positive"], annotation: {type: "description", description: " userNUm = '2' -problem_user login test "}},
         
