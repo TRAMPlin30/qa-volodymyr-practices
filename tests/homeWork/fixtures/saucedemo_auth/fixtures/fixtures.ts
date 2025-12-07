@@ -1,14 +1,14 @@
 import { test, expect } from '@playwright/test'
-import { SignInPage } from '../../example/fixtures_example/SignInPage'
-import { SignUpPage } from '../../example/fixtures_example/SignUpPage'
+import { LoginPage } from '../pages/LoginPage'
 
 
-type MyFixtures  = { signInPage: SignInPage, signUpPage: SignUpPage, before: void, after: void } 
+type MyFixtures  = { loginPage: LoginPage, before: void, after: void } 
 
 
 export const my_test = test.extend<MyFixtures>({
 
 
+    //login
     before: [async({page}, use) => {console.log("fixture before tests")
 
         const url: string = "https://www.saucedemo.com/"
@@ -21,14 +21,19 @@ export const my_test = test.extend<MyFixtures>({
     
 
 
+//--------pages------------------------------
 
-//--------------------------------------
-//--------------------------------------
+    loginPage: async ({page}, use) => {
+        const loginPage = new LoginPage(page);
+        await use(loginPage);
+        console.log("loginPage created in Fixture")
+    },
+
+//-------------------------------------------
 
 
 
-
-
+    //logout
     after: [async({}, use) => {console.log("fixture after tests")
             await use();
             }, {auto: true},],
