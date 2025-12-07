@@ -3,6 +3,7 @@
 import { test } from '@playwright/test'
 import { SignInPage } from './SignInPage'
 import { SignUpPage } from './SignUpPage'
+import { beforeEach } from 'node:test'
 
 // const my_test = test.extend({ объект })  //расширяеться объектами
 
@@ -30,7 +31,10 @@ export const my_test = test.extend<MyFixtures>({
 
     //притаком синтаксисе фикстура будет выполнена автоматически
     beforeTextures: [async({signInPage}, use) => { //передаем предидущую фикстуру что б был объект signInPage
+        console.log("fixture before Each")
         await signInPage.goto();
+        await use();
+        
 
     }, {auto: true}]
 
