@@ -3,48 +3,43 @@ import { LoginPage } from '../pages/LoginPage'
 import { NavBarPage } from '../pages/NavBarPage'
 
 
-type MyFixtures  = { loginPage: LoginPage, before: void, after: void } 
+type MyFixtures  = { loginPage: LoginPage, login: (userNum: number) => Promise<void>, setupApp: void, logOut: void } 
 
 
 export const my_test = test.extend<MyFixtures>({
 
+    setupApp: [async({page}, use) => {console.log("fixture: before tests")
+            const url: string = "https://www.saucedemo.com/"
+            await page.goto(url);
+            await expect (page).toHaveURL(url);
+            await expect(page.getByText("Swag Labs")).toBeVisible();
+            await use();},
+            {auto: true}],
 
-    //login
-    before: [async({page}, use) => {console.log("fixture before tests")
-
-        const url: string = "https://www.saucedemo.com/"
-        await page.goto(url);
-        await expect (page).toHaveURL(url);
-        await expect(page.getByText("Swag Labs")).toBeVisible();
-       
-        const loginPage = new LoginPage(page);
-        const users: string[] = await loginPage.getUsers();
-        await loginPage.login(users.at(0)!, await loginPage.getPassword())
-
-        await use(); 
-        }, {auto: true},],
+//--------------------------------------
     
-
-
-//--------pages------------------------------
-
-    loginPage: async ({page}, use) => {
+    login: async({page}, use) => {console.log("fixture: login")
+        await use(async (userNum: number) => {
+            const loginPage = new LoginPage(page);
+            const users: string[] = await loginPage.getUsers();
+            await loginPage.login(users.at(userNum)!, await loginPage.getPassword())
+            
+        })},
+    
+     
+    loginPage: async ({page}, use) => {console.log("fixture: LoginPage created")
         const loginPage = new LoginPage(page);
         await use(loginPage);
-        console.log("loginPage created in Fixture")
     },
 
-//-------------------------------------------
+//--------------------------------------
 
 
-
-    //logout
-    after: [async({page}, use) => {console.log("fixture after tests")
-
+    logOut: [async({page}, use) => {console.log("fixture: after tests logout")
+        await use();
         const navBarPage = new NavBarPage(page);
         await navBarPage.openBurgerMenu();
-
-        await use();
-        }, {auto: true},],
+        await navBarPage.logoutLink_click();
+        },{auto: true}],
 
 })
