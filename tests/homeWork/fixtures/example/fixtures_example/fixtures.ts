@@ -3,7 +3,6 @@
 import { test } from '@playwright/test'
 import { SignInPage } from './SignInPage'
 import { SignUpPage } from './SignUpPage'
-import { beforeEach } from 'node:test'
 
 // const my_test = test.extend({ объект })  //расширяеться объектами
 
@@ -16,7 +15,7 @@ export const my_test = test.extend<MyFixtures>({
     //фикстура одной страници - обычная асинх стрелочная функция которая возвращает объект страницы что б использовать ешо в тестах потом
     signInPage: async ({page}, use) => {               
         const signInPage = new SignInPage(page);
-        await use(signInPage);
+        await use(signInPage);    //use это типа как return()
         console.log("fixture 1")
     },
 

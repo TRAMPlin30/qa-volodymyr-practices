@@ -1,9 +1,0 @@
-Authentication - процес проверки и подтверждения ідентичності користувача зазвичай перед наданням доступу до певних ресурсів
-                Мета: переконатісь що особа або система яка намагається отримати доступ є тією за кого вона себе видає
-
-questions: 
-
-dynamic method:
-1. await page.getByPlaceholder('Email').fill(authData.get('email')!); - why: string | undefined ????
-2. no ability to use generated cred after sign-up
-
