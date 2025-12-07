@@ -8,8 +8,7 @@ my_test('ID   Some: text', {tag: ["@tag"], annotation: {type: "description", des
     async ({ before, loginPage, after }) => {   
             
 
-        const users = await loginPage.getUsers();
-        console.log(users);
+        
         
 
     })
